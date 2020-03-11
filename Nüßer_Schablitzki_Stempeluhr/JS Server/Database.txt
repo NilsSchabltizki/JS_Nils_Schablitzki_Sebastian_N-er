@@ -1,0 +1,19 @@
+CREATE DATABASE Firma;
+
+USE Firma;
+
+CREATE TABLE Personal(
+	Personalnummer int PRIMARY KEY identity(1,1),
+	Vorname varchar(30),
+	Nachname varchar(30),
+	Anrede varchar(10),
+	Pin int);
+
+CREATE TABLE Buchungen(
+	BuchungRef int PRIMARY KEY identity(1,1),
+	Personalnummer int,
+	Buchungstyp varchar(30),
+	Datum date,
+	Uhrzeit datetime,
+	FOREIGN KEY (Personalnummer) REFERENCES Personal(Personalnummer));
+	
